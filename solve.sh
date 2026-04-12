@@ -1,5 +1,5 @@
 arg=$1
 
-answer=$(echo -n "$(python $arg.py)" | md5sum)
+answer=$(uv run $arg.py | md5sum | awk '{print $1}')
 
 echo Answer: $answer
